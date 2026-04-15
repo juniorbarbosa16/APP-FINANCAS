@@ -165,6 +165,20 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
 .goal-actions{display:flex;gap:6px;margin-top:12px;}
 .btn-contribute{flex:1;padding:8px;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);border-radius:var(--radius-sm);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
 .btn-contribute:hover{background:var(--accent);color:#0a0a0f;}
+.btn-withdraw{flex:1;padding:8px;background:var(--red-dim);border:1px solid var(--red);color:var(--red);border-radius:var(--radius-sm);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-withdraw:hover{background:var(--red);color:#fff;}
+
+/* GRÁFICO PIZZA INVESTIMENTOS */
+.inv-pizza-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px;}
+.inv-pizza-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:16px;}
+.inv-pizza-inner{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.inv-pizza-svg{flex-shrink:0;}
+.inv-pizza-legend{display:flex;flex-direction:column;gap:8px;flex:1;min-width:160px;}
+.inv-pizza-leg-item{display:flex;align-items:center;gap:8px;font-size:12px;}
+.inv-pizza-leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.inv-pizza-leg-label{flex:1;color:var(--text);}
+.inv-pizza-leg-val{font-weight:600;color:var(--text);}
+.inv-pizza-leg-pct{color:var(--muted);font-size:11px;min-width:32px;text-align:right;}
 .goal-completed{position:absolute;top:12px;right:12px;background:var(--accent);color:#0a0a0f;font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:0.05em;}
 .bar-chart{display:flex;align-items:flex-end;gap:7px;height:120px;}
 .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;}
@@ -280,12 +294,71 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
 .tag:hover,.tag.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
-/* MOBILE NAV */
+/* CHAT IA */
+.chat-wrap{display:flex;flex-direction:column;height:calc(100vh - 200px);min-height:400px;max-height:750px;}
+.chat-cfg{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.chat-cfg label{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.07em;flex-shrink:0;}
+.chat-cfg input{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-xs);color:var(--text);padding:7px 10px;font-family:'DM Sans',sans-serif;font-size:12px;outline:none;}
+.chat-cfg input:focus{border-color:var(--accent);}
+.chat-msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:4px 0 12px;}
+.chat-msgs::-webkit-scrollbar{width:3px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.chat-bubble{max-width:85%;padding:12px 16px;border-radius:14px;font-size:13px;line-height:1.55;animation:fadeUp 0.2s ease;}
+.chat-bubble.user{align-self:flex-end;background:var(--accent);color:#0a0a0f;border-radius:14px 14px 4px 14px;}
+.chat-bubble.ai{align-self:flex-start;background:var(--surface2);border:1px solid var(--border);border-radius:14px 14px 14px 4px;}
+.chat-bubble.ai.loading{color:var(--muted);font-style:italic;}
+.chat-bubble img{max-width:220px;max-height:160px;border-radius:8px;display:block;margin-bottom:8px;object-fit:cover;}
+.chat-confirmed{background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--radius-xs);padding:10px 14px;font-size:12px;margin-top:6px;}
+.chat-confirmed .cf-row{display:flex;justify-content:space-between;margin-bottom:3px;}
+.chat-confirmed .cf-label{color:var(--muted);}
+.chat-confirmed .cf-val{font-weight:600;color:var(--accent);}
+.chat-input-row{display:flex;gap:8px;align-items:flex-end;margin-top:8px;}
+.chat-input-row textarea{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;resize:none;min-height:44px;max-height:120px;transition:border-color 0.2s;}
+.chat-input-row textarea:focus{border-color:var(--accent);}
+.btn-chat-send{padding:12px 18px;background:var(--accent);color:#0a0a0f;border:none;border-radius:var(--radius-sm);cursor:pointer;font-weight:700;font-size:18px;transition:opacity 0.2s;flex-shrink:0;line-height:1;}
+.btn-chat-send:hover{opacity:0.85;}
+.btn-chat-send:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-chat-foto{padding:12px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;font-size:18px;transition:all 0.2s;flex-shrink:0;line-height:1;}
+.btn-chat-foto:hover{border-color:var(--accent);}
+.chat-preview-img{position:relative;display:inline-block;margin-bottom:8px;}
+.chat-preview-img img{max-height:80px;border-radius:8px;border:1px solid var(--border);}
+.chat-preview-img button{position:absolute;top:-6px;right:-6px;background:var(--red);border:none;border-radius:50%;width:18px;height:18px;color:#fff;cursor:pointer;font-size:11px;line-height:18px;text-align:center;padding:0;}
+.chat-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.chat-pill{padding:6px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:99px;font-size:11px;color:var(--muted);cursor:pointer;transition:all 0.15s;}
+.chat-pill:hover{border-color:var(--accent);color:var(--accent);}
+
 .mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--border);padding:8px 2px calc(8px + env(safe-area-inset-bottom));z-index:100;justify-content:space-around;}
 @media(max-width:680px){.mobile-nav{display:flex;}}
 .mob-tab{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:9px;padding:4px 8px;border-radius:var(--radius-xs);transition:all 0.15s;}
 .mob-tab.active{color:var(--accent);}
 .mob-tab .ico{font-size:18px;}
+/* LEMBRETES */
+.lembrete-banner{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:12px;display:flex;align-items:flex-start;gap:14px;position:relative;animation:fadeUp 0.2s ease;}
+.lembrete-banner.urgente{border-color:var(--red);background:var(--red-dim);}
+.lembrete-banner.atencao{border-color:var(--gold);background:var(--gold-dim);}
+.lembrete-banner.info{border-color:var(--blue);background:var(--blue-dim);}
+.lembrete-banner.ok{border-color:var(--accent);background:var(--accent-dim);}
+.lem-ico{font-size:22px;flex-shrink:0;margin-top:1px;}
+.lem-body{flex:1;}
+.lem-titulo{font-size:13px;font-weight:600;margin-bottom:2px;}
+.lem-desc{font-size:11px;color:var(--muted);}
+.lem-dias{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;text-transform:uppercase;letter-spacing:.05em;display:inline-block;margin-top:5px;}
+.lem-dias.urgente{background:var(--red);color:#fff;}
+.lem-dias.atencao{background:var(--gold);color:#0a0a0f;}
+.lem-dias.info{background:var(--blue);color:#fff;}
+.lem-dias.ok{background:var(--accent);color:#0a0a0f;}
+.lem-fechar{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:2px 6px;border-radius:4px;}
+.lem-fechar:hover{color:var(--text);}
+.lem-grid{display:flex;flex-direction:column;gap:10px;}
+.lem-form{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:20px;}
+.lem-form-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;}
+.lem-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.lem-vazio{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;}
+.lem-badge{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;border-radius:50%;width:16px;height:16px;font-size:9px;font-weight:700;margin-left:4px;vertical-align:middle;animation:pulse 1.5s ease-in-out infinite;}
+.notif-bar{position:fixed;top:0;left:0;right:0;z-index:9999;display:flex;flex-direction:column;gap:6px;padding:10px 16px;pointer-events:none;}
+.notif-toast{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,0.4);pointer-events:all;animation:fadeUp 0.3s ease;max-width:400px;margin:0 auto;}
+.notif-toast.urgente{border-color:var(--red);}
+.notif-toast.atencao{border-color:var(--gold);}
 </style>
 </head>
 <body>
@@ -362,6 +435,8 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
       <button class="nav-tab" onclick="showSection('investimentos')">Investimentos</button>
       <button class="nav-tab" onclick="showSection('metas')">Metas</button>
       <button class="nav-tab" onclick="showSection('relatorios')">Relatórios</button>
+      <button class="nav-tab" id="nav-lembretes" onclick="showSection('lembretes')">🔔 Lembretes</button>
+      <button class="nav-tab" onclick="showSection('chat')" style="color:var(--accent)">🤖 Chat IA</button>
     </div>
     <div class="nav-right">
       <div class="sync-badge"><div class="sync-dot" id="sync-dot"></div><span id="sync-label" style="display:none"></span></div>
@@ -424,8 +499,14 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
       <div class="section-header"><div><h1>Investimentos</h1><p>Carteira, rendimentos e dividendos</p></div><button class="btn-new" onclick="openInvModal()">+ Novo</button></div>
       <div class="summary-grid" id="inv-cards"></div>
 
-      <!-- Monitor de Carteira -->
-      <div id="monitor-carteira" style="display:none;margin-bottom:20px"></div>
+      <!-- GRÁFICO PIZZA -->
+      <div class="inv-pizza-wrap" id="inv-pizza-wrap" style="display:none">
+        <div class="inv-pizza-title">📊 Patrimônio por categoria</div>
+        <div class="inv-pizza-inner">
+          <svg class="inv-pizza-svg" id="inv-pizza-svg" width="160" height="160" viewBox="0 0 160 160"></svg>
+          <div class="inv-pizza-legend" id="inv-pizza-legend"></div>
+        </div>
+      </div>
 
       <!-- PAINEL DIVIDENDOS -->
       <div class="div-painel">
@@ -503,13 +584,112 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
         </div>
       </div>
     </div>
+    <!-- CHAT IA -->
+    <div id="chat" class="section">
+      <div class="section-header">
+        <div><h1>Chat IA 🤖</h1><p>Digite, fale ou envie foto — o assistente registra automaticamente</p></div>
+      </div>
+
+      <!-- Config API Key -->
+      <div class="chat-cfg" id="chat-cfg-bar">
+        <label>🔑 Anthropic API Key</label>
+        <input type="password" id="chat-apikey" placeholder="sk-ant-... (salvo só no seu navegador)">
+        <button class="btn-brapi-save" onclick="salvarApiKey()">Salvar</button>
+        <a href="https://console.anthropic.com" target="_blank" style="font-size:11px;color:var(--teal)">Obter chave →</a>
+      </div>
+      <div id="chat-apikey-ok" style="font-size:11px;color:var(--accent);margin-bottom:10px;display:none">
+        ✅ API Key configurada — <button onclick="resetApiKey()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;text-decoration:underline">trocar</button>
+      </div>
+
+      <div class="chat-wrap">
+        <!-- Sugestões rápidas -->
+        <div class="chat-pills" id="chat-pills">
+          <span class="chat-pill" onclick="usarPill(this)">💸 Gastei R$ no mercado</span>
+          <span class="chat-pill" onclick="usarPill(this)">🍔 Comi fora, R$ no restaurante</span>
+          <span class="chat-pill" onclick="usarPill(this)">💰 Recebi meu salário de R$</span>
+          <span class="chat-pill" onclick="usarPill(this)">🚗 Abasteci o carro R$</span>
+          <span class="chat-pill" onclick="usarPill(this)">💊 Gastei R$ na farmácia</span>
+          <span class="chat-pill" onclick="usarPill(this)">📷 Enviar foto do comprovante</span>
+        </div>
+
+        <!-- Mensagens -->
+        <div class="chat-msgs" id="chat-msgs">
+          <div class="chat-bubble ai">
+            Olá! 👋 Sou seu assistente financeiro. Você pode:<br><br>
+            💬 <strong>Digitar</strong> — ex: <em>"gastei 45 reais no mercado"</em><br>
+            📷 <strong>Enviar foto</strong> — comprovante, nota fiscal, extrato<br><br>
+            Eu identifico automaticamente se é gasto ou receita e registro no app!
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div>
+          <div id="chat-img-preview" style="display:none" class="chat-preview-img">
+            <img id="chat-preview-thumb" src="" alt="preview">
+            <button onclick="limparFoto()">×</button>
+          </div>
+          <div class="chat-input-row">
+            <label class="btn-chat-foto" title="Enviar foto">
+              📷
+              <input type="file" id="chat-file" accept="image/*" style="display:none" onchange="onFotoSelecionada(this)">
+            </label>
+            <textarea id="chat-txt" placeholder="Ex: gastei 50 reais no mercado..." rows="1"
+              onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();enviarChat()}"
+              oninput="this.style.height='auto';this.style.height=this.scrollHeight+'px'"></textarea>
+            <button class="btn-chat-send" onclick="enviarChat()" id="btn-chat-send">↑</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEMBRETES -->
+    <div id="lembretes" class="section">
+      <div class="section-header">
+        <div><h1>Lembretes 🔔</h1><p>Vencimentos, metas e alertas personalizados</p></div>
+        <button class="btn-new" onclick="openLembreteModal()">+ Novo</button>
+      </div>
+
+      <!-- Automáticos -->
+      <div id="lem-auto-wrap">
+        <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">⚡ Alertas automáticos</div>
+        <div class="lem-grid" id="lem-auto"></div>
+      </div>
+
+      <div style="margin:20px 0 10px;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em">📌 Lembretes manuais</div>
+
+      <!-- Formulário rápido -->
+      <div class="lem-form">
+        <div class="lem-form-title">Adicionar lembrete</div>
+        <div class="form-group"><label>Descrição</label><input type="text" id="lem-desc" placeholder="Ex: Renovar seguro do carro"></div>
+        <div class="lem-form-row">
+          <div class="form-group"><label>Data</label><input type="date" id="lem-data"></div>
+          <div class="form-group"><label>Categoria</label>
+            <select id="lem-cat">
+              <option value="conta">💳 Conta/Pagamento</option>
+              <option value="meta">🎯 Meta</option>
+              <option value="saude">❤️ Saúde</option>
+              <option value="trabalho">💼 Trabalho</option>
+              <option value="outro">📌 Outro</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-primary" style="margin-top:4px" onclick="salvarLembrete()">Salvar lembrete</button>
+      </div>
+
+      <!-- Manuais -->
+      <div class="lem-grid" id="lem-manual"></div>
+    </div>
+
   </main>
+
+  <!-- Barra de notificações -->
+  <div class="notif-bar" id="notif-bar"></div>
 
   <div class="mobile-nav">
     <button class="mob-tab active" onclick="showSection('dashboard')"><span class="ico">🏠</span>Início</button>
-    <button class="mob-tab" onclick="showSection('transacoes')"><span class="ico">💸</span>Transações</button>
-    <button class="mob-tab" onclick="showSection('dividas')"><span class="ico">💳</span>Dívidas</button>
-    <button class="mob-tab" onclick="showSection('investimentos')"><span class="ico">📈</span>Invest.</button>
+    <button class="mob-tab" onclick="showSection('transacoes')"><span class="ico">💸</span>Gastos</button>
+    <button class="mob-tab" onclick="showSection('lembretes')"><span class="ico">🔔</span>Alertas</button>
+    <button class="mob-tab" onclick="showSection('chat')"><span class="ico">🤖</span>Chat IA</button>
     <button class="mob-tab" onclick="showSection('perfil')"><span class="ico">👤</span>Perfil</button>
   </div>
 </div>
@@ -549,10 +729,13 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
       <div class="form-group"><label>Parcelas pagas</label><input type="number" id="div-pagas" placeholder="0" min="0" value="0"></div>
       <div class="form-group"><label>Data 1ª parcela</label><input type="date" id="div-data"></div>
     </div>
-    <div class="form-group"><label>Categoria</label>
-      <select id="div-cat">
-        <option>Cartão de crédito</option><option>Financiamento</option><option>Empréstimo</option><option>Consignado</option><option>Outro</option>
-      </select>
+    <div class="form-row-2">
+      <div class="form-group"><label>Dia de vencimento 📅</label><input type="number" id="div-vencimento" placeholder="Ex: 5, 10, 15..." min="1" max="31"></div>
+      <div class="form-group"><label>Categoria</label>
+        <select id="div-cat">
+          <option>Cartão de crédito</option><option>Financiamento</option><option>Empréstimo</option><option>Consignado</option><option>Outro</option>
+        </select>
+      </div>
     </div>
     <button class="btn-primary" onclick="saveDivida()">Adicionar dívida</button>
   </div>
@@ -603,18 +786,9 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
 <div class="modal-bg" id="inv-update-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeInvUpdateModal()">×</button>
-    <div class="modal-title" id="inv-update-title">Editar investimento</div>
-    <div class="form-group"><label>Nome</label><input type="text" id="inv-edit-nome" placeholder="Nome do ativo"></div>
-    <div class="form-row-2">
-      <div class="form-group"><label>Valor investido (R$)</label><input type="number" id="inv-edit-investido" placeholder="0,00" min="0" step="0.01"></div>
-      <div class="form-group"><label>Valor atual (R$)</label><input type="number" id="inv-novo-valor" placeholder="0,00" min="0" step="0.01"></div>
-    </div>
-    <div class="form-row-2">
-      <div class="form-group"><label>Quantidade de cotas</label><input type="number" id="inv-edit-cotas" placeholder="0" min="0" step="1"></div>
-      <div class="form-group"><label>Rentab. esperada (%/ano)</label><input type="number" id="inv-edit-rentab" placeholder="12,5" step="0.1"></div>
-    </div>
-    <div class="form-group"><label>Observação</label><input type="text" id="inv-edit-obs" placeholder="Ex: Vence em 2027..."></div>
-    <button class="btn-primary" onclick="atualizarInvestimento()">💾 Salvar alterações</button>
+    <div class="modal-title" id="inv-update-title">Atualizar valor</div>
+    <div class="form-group"><label>Novo valor atual (R$)</label><input type="number" id="inv-novo-valor" placeholder="0,00" min="0" step="0.01"></div>
+    <button class="btn-primary" onclick="atualizarInvestimento()">Salvar</button>
   </div>
 </div>
 
@@ -633,13 +807,18 @@ main{max-width:1100px;margin:0 auto;padding:24px 16px 80px;}
   </div>
 </div>
 
-<!-- Contribuir meta -->
+<!-- Contribuir / Retirar meta -->
 <div class="modal-bg" id="contrib-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeContribModal()">×</button>
     <div class="modal-title" id="contrib-title">Contribuir</div>
+    <div class="type-toggle" style="margin-bottom:16px">
+      <button class="type-btn active-receita" id="btn-contrib-dep" onclick="setContribTipo('deposito')">+ Depositar</button>
+      <button class="type-btn" id="btn-contrib-ret" onclick="setContribTipo('retirada')">− Retirar</button>
+    </div>
     <div class="form-group"><label>Valor (R$)</label><input type="number" id="contrib-val" placeholder="0,00" min="0" step="0.01"></div>
-    <button class="btn-primary" onclick="saveContrib()">Adicionar</button>
+    <div id="contrib-aviso" style="font-size:11px;color:var(--red);margin-bottom:8px;display:none">⚠️ Valor maior que o saldo disponível</div>
+    <button class="btn-primary" onclick="saveContrib()"><span class="btn-label">Confirmar</span><div class="btn-spinner"></div></button>
   </div>
 </div>
 
@@ -676,7 +855,7 @@ const COLORS={Alimentação:'#ff5e7a',Transporte:'#6eb3ff',Moradia:'#c8f55a',Sa�
 const EMOJIS=['🎯','🏠','✈️','🚗','📚','💻','🏖️','💍','🐾','🎸','🏋️','💰','🌱','🎓','🏥'];
 const INV_TIPOS_ICONS={Ações:'📊','Renda Fixa':'🏛️',FIIs:'🏢',Criptomoedas:'₿',Fundos:'🗂️',Poupança:'🐷',Outro:'💼'};
 
-let currentUser=null, transactions=[], budgets={}, goals=[], dividas=[], investimentos=[];
+let currentUser=null, transactions=[], budgets={}, goals=[], dividas=[], investimentos=[], lembretesManuais=[];
 let txType='receita', selEmoji='🎯', contribId=null, pagarDividaId=null, invUpdateId=null;
 let unsubListeners=[], currentSection='dashboard';
 
@@ -706,7 +885,7 @@ function subscribeData(){
     err=>{console.warn('TX:',err.code);if(err.code==='permission-denied')showFSWarn();}
   );
   const u2=db.collection('users').doc(currentUser.uid).onSnapshot(
-    snap=>{const d=snap.data()||{};budgets=d.budgets||{};goals=d.goals||[];dividas=d.dividas||[];investimentos=d.investimentos||[];refresh();},
+    snap=>{const d=snap.data()||{};budgets=d.budgets||{};goals=d.goals||[];dividas=d.dividas||[];investimentos=d.investimentos||[];lembretesManuais=d.lembretesManuais||[];refresh();verificarLembretesAuto();},
     err=>{console.warn('DOC:',err.code);if(err.code==='permission-denied')showFSWarn();}
   );
   unsubListeners.push(u1,u2);
@@ -847,7 +1026,7 @@ function showSection(id){
   refresh();
 }
 function refresh(){
-  ({dashboard:renderDashboard,transacoes:renderTransacoes,orcamento:renderOrcamento,dividas:renderDividas,investimentos:renderInvestimentos,metas:renderMetas,relatorios:renderRelatorios,perfil:renderPerfil})[currentSection]?.();
+  ({dashboard:renderDashboard,transacoes:renderTransacoes,orcamento:renderOrcamento,dividas:renderDividas,investimentos:renderInvestimentos,metas:renderMetas,relatorios:renderRelatorios,perfil:renderPerfil,chat:renderChat,lembretes:renderLembretes})[currentSection]?.();
 }
 
 // ═══════════════════════════════════════
@@ -909,11 +1088,16 @@ async function delTx(id){if(!confirm('Excluir?'))return;await deleteTransactionF
 // ═══════════════════════════════════════
 function renderTransacoes(){
   const cs=document.getElementById('filter-cat'),ms=document.getElementById('filter-mes');
-  cs.innerHTML='<option value="">Todas as categorias</option>'+[...new Set(transactions.map(t=>t.cat))].sort().map(c=>`<option>${c}</option>`).join('');
+  // Salva valores selecionados ANTES de reconstruir
+  const catVal=cs.value, mesVal=ms.value, tipoVal=document.getElementById('filter-tipo').value;
+  cs.innerHTML='<option value="">Todas as categorias</option>'+[...new Set(transactions.map(t=>t.cat))].sort().map(c=>`<option value="${c}">${c}</option>`).join('');
   ms.innerHTML='<option value="">Todos os meses</option>'+[...new Set(transactions.map(t=>t.data.slice(0,7)))].sort().reverse().map(m=>{const[y,mo]=m.split('-');return`<option value="${m}">${new Date(+y,+mo-1,1).toLocaleDateString('pt-BR',{month:'long',year:'numeric'})}</option>`;}).join('');
+  // Restaura valores
+  cs.value=catVal; ms.value=mesVal;
   let f=[...transactions];
-  const tipo=document.getElementById('filter-tipo').value,cat=cs.value,mes=ms.value;
-  if(tipo)f=f.filter(t=>t.type===tipo);if(cat)f=f.filter(t=>t.cat===cat);if(mes)f=f.filter(t=>t.data.startsWith(mes));
+  if(tipoVal)f=f.filter(t=>t.type===tipoVal);
+  if(cs.value)f=f.filter(t=>t.cat===cs.value);
+  if(ms.value)f=f.filter(t=>t.data.startsWith(ms.value));
   document.getElementById('all-transacoes').innerHTML=f.length?f.map(txHTML).join(''):'<div class="empty">Nenhuma transação encontrada</div>';
 }
 
@@ -941,7 +1125,7 @@ async function delBudget(cat){delete budgets[cat];await saveUserDoc({budgets});}
 // ═══════════════════════════════════════
 // DÍVIDAS
 // ═══════════════════════════════════════
-function openDividaModal(){['div-nome','div-total','div-parcelas','div-parcela-val','div-pagas'].forEach(id=>document.getElementById(id).value='');document.getElementById('div-pagas').value='0';document.getElementById('div-data').value=new Date().toISOString().split('T')[0];document.getElementById('divida-modal').classList.add('open');}
+function openDividaModal(){['div-nome','div-total','div-parcelas','div-parcela-val','div-pagas','div-vencimento'].forEach(id=>document.getElementById(id).value='');document.getElementById('div-pagas').value='0';document.getElementById('div-data').value=new Date().toISOString().split('T')[0];document.getElementById('divida-modal').classList.add('open');}
 function closeDividaModal(){document.getElementById('divida-modal').classList.remove('open');}
 
 function calcDivida(){
@@ -955,8 +1139,9 @@ function calcDivida2(){
 
 async function saveDivida(){
   const nome=document.getElementById('div-nome').value.trim(),total=parseFloat(document.getElementById('div-total').value),parcelas=parseInt(document.getElementById('div-parcelas').value),parcelaVal=parseFloat(document.getElementById('div-parcela-val').value),pagas=parseInt(document.getElementById('div-pagas').value)||0,data=document.getElementById('div-data').value,cat=document.getElementById('div-cat').value;
+  const vencimento=parseInt(document.getElementById('div-vencimento').value)||null;
   if(!nome||!total||!parcelas){alert('Preencha nome, total e nº de parcelas.');return;}
-  dividas.push({id:Date.now(),nome,valorTotal:total,numParcelas:parcelas,valorParcela:parcelaVal||(total/parcelas),pagas,dataInicio:data,categoria:cat});
+  dividas.push({id:Date.now(),nome,valorTotal:total,numParcelas:parcelas,valorParcela:parcelaVal||(total/parcelas),pagas,dataInicio:data,categoria:cat,diaVencimento:vencimento});
   closeDividaModal();
   await saveUserDoc({dividas});
 }
@@ -973,10 +1158,22 @@ function renderDividas(){
   if(!dividas.length){grid.innerHTML='<div class="no-data" style="grid-column:1/-1">Nenhuma dívida cadastrada.</div>';return;}
   grid.innerHTML=dividas.map(d=>{
     const pagas=d.pagas||0,restantes=d.numParcelas-pagas,pago=pagas*d.valorParcela,restante=restantes*d.valorParcela,p=pct(pagas,d.numParcelas),quitada=restantes<=0;
+    // Calcula próximo vencimento
+    let proximoVenc='';
+    if(d.diaVencimento&&!quitada){
+      const hoje=new Date(); hoje.setHours(0,0,0,0);
+      let prox=new Date(hoje.getFullYear(),hoje.getMonth(),d.diaVencimento);
+      if(prox<=hoje) prox=new Date(hoje.getFullYear(),hoje.getMonth()+1,d.diaVencimento);
+      const dias=Math.ceil((prox-hoje)/(1000*60*60*24));
+      const cor=dias<=3?'var(--red)':dias<=7?'var(--gold)':'var(--muted)';
+      const label=dias===0?'Vence hoje!':dias===1?'Vence amanhã':`Vence em ${dias} dias`;
+      proximoVenc=`<div style="font-size:11px;color:${cor};font-weight:600;margin-bottom:6px">📅 ${label} (dia ${d.diaVencimento})</div>`;
+    }
     return `<div class="divida-card">
       ${quitada?'<div class="goal-completed" style="background:var(--teal);color:#0a0a0f">✓ Quitada</div>':''}
       <div class="divida-nome">${d.nome}</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:8px">${d.categoria} · ${d.numParcelas}x de ${fmt(d.valorParcela)}</div>
+      ${proximoVenc}
       <div class="divida-info">
         <div class="divida-stat"><div class="divida-stat-label">Valor total</div><div class="divida-stat-value" style="color:var(--purple)">${fmt(d.valorTotal)}</div></div>
         <div class="divida-stat"><div class="divida-stat-label">Parcelas pagas</div><div class="divida-stat-value" style="color:var(--accent)">${pagas}/${d.numParcelas}</div></div>
@@ -1023,43 +1220,66 @@ async function saveInvestimento(){
   if(ticker)buscarDividendos();
 }
 
-function openInvUpdateModal(id){
-  invUpdateId=id;
-  const inv=investimentos.find(i=>i.id===id);
-  if(!inv)return;
-  document.getElementById('inv-update-title').textContent=`Editar — ${inv.nome}`;
-  document.getElementById('inv-edit-nome').value=inv.nome||'';
-  document.getElementById('inv-edit-investido').value=inv.valorInvestido||0;
-  document.getElementById('inv-novo-valor').value=inv.valorAtual||inv.valorInvestido||0;
-  document.getElementById('inv-edit-cotas').value=inv.cotas||0;
-  document.getElementById('inv-edit-rentab').value=inv.rentabilidadeEsperada||0;
-  document.getElementById('inv-edit-obs').value=inv.obs||'';
-  document.getElementById('inv-update-modal').classList.add('open');
-}
+function openInvUpdateModal(id){invUpdateId=id;const inv=investimentos.find(i=>i.id===id);document.getElementById('inv-update-title').textContent=`Atualizar — ${inv.nome}`;document.getElementById('inv-novo-valor').value=inv.valorAtual||inv.valorInvestido;document.getElementById('inv-update-modal').classList.add('open');}
 function closeInvUpdateModal(){document.getElementById('inv-update-modal').classList.remove('open');}
 async function atualizarInvestimento(){
-  const inv=investimentos.find(i=>i.id===invUpdateId);
-  if(!inv){alert('Investimento não encontrado.');return;}
-  const nome=document.getElementById('inv-edit-nome').value.trim();
-  const investido=parseFloat(document.getElementById('inv-edit-investido').value)||0;
-  const atual=parseFloat(document.getElementById('inv-novo-valor').value)||0;
-  const cotas=parseFloat(document.getElementById('inv-edit-cotas').value)||0;
-  const rentab=parseFloat(document.getElementById('inv-edit-rentab').value)||0;
-  const obs=document.getElementById('inv-edit-obs').value.trim();
-  if(!nome||!investido){alert('Preencha nome e valor investido.');return;}
-  inv.nome=nome;
-  inv.valorInvestido=investido;
-  inv.valorAtual=atual;
-  inv.cotas=cotas;
-  inv.rentabilidadeEsperada=rentab;
-  inv.obs=obs;
+  const v=parseFloat(document.getElementById('inv-novo-valor').value);
+  if(!v||v<0){alert('Valor inválido.');return;}
+  const inv=investimentos.find(i=>i.id===invUpdateId);if(inv)inv.valorAtual=v;
   closeInvUpdateModal();
   await saveUserDoc({investimentos});
-  showToast('Investimento atualizado!','ok');
 }
 async function delInvestimento(id){if(!confirm('Excluir este investimento?'))return;investimentos=investimentos.filter(i=>i.id!==id);await saveUserDoc({investimentos});}
 
 let dividendosCache=[];
+
+function renderPizzaInvestimentos(){
+  if(!investimentos.length){document.getElementById('inv-pizza-wrap').style.display='none';return;}
+  const PIZZA_CORES={
+    'Ações':'#6eb3ff','Renda Fixa':'#c8f55a','FIIs':'#ffcc5a',
+    'Criptomoedas':'#ff9a5e','Fundos':'#b97aff','Poupança':'#3dd9c6','Outro':'#aaaaaa'
+  };
+  // Agrupa por tipo
+  const grupos={};
+  investimentos.forEach(inv=>{
+    const tipo=inv.tipo||'Outro';
+    const val=inv.valorAtual||inv.valorInvestido||0;
+    grupos[tipo]=(grupos[tipo]||0)+val;
+  });
+  const total=Object.values(grupos).reduce((a,b)=>a+b,0);
+  if(!total){document.getElementById('inv-pizza-wrap').style.display='none';return;}
+  document.getElementById('inv-pizza-wrap').style.display='block';
+
+  // Desenha SVG pizza
+  const cx=80,cy=80,r=68,ri=36;
+  let anguloAtual=-Math.PI/2;
+  const entradas=Object.entries(grupos).sort((a,b)=>b[1]-a[1]);
+  let paths='';
+  entradas.forEach(([tipo,val])=>{
+    const fatia=(val/total)*2*Math.PI;
+    const x1=cx+r*Math.cos(anguloAtual), y1=cy+r*Math.sin(anguloAtual);
+    const x2=cx+r*Math.cos(anguloAtual+fatia), y2=cy+r*Math.sin(anguloAtual+fatia);
+    const xi1=cx+ri*Math.cos(anguloAtual), yi1=cy+ri*Math.sin(anguloAtual);
+    const xi2=cx+ri*Math.cos(anguloAtual+fatia), yi2=cy+ri*Math.sin(anguloAtual+fatia);
+    const large=fatia>Math.PI?1:0;
+    const cor=PIZZA_CORES[tipo]||'#aaa';
+    paths+=`<path d="M${xi1},${yi1} L${x1},${y1} A${r},${r} 0 ${large},1 ${x2},${y2} L${xi2},${yi2} A${ri},${ri} 0 ${large},0 ${xi1},${yi1} Z" fill="${cor}" stroke="var(--bg)" stroke-width="2" opacity="0.92"/>`;
+    anguloAtual+=fatia;
+  });
+  // Texto central
+  paths+=`<text x="${cx}" y="${cy-6}" text-anchor="middle" font-size="10" fill="var(--muted)" font-family="DM Sans,sans-serif">Total</text>`;
+  paths+=`<text x="${cx}" y="${cy+10}" text-anchor="middle" font-size="11" font-weight="600" fill="var(--text)" font-family="DM Sans,sans-serif">${fmt(total).replace('R$ ','R$')}</text>`;
+  document.getElementById('inv-pizza-svg').innerHTML=paths;
+
+  // Legenda
+  document.getElementById('inv-pizza-legend').innerHTML=entradas.map(([tipo,val])=>`
+    <div class="inv-pizza-leg-item">
+      <div class="inv-pizza-leg-dot" style="background:${PIZZA_CORES[tipo]||'#aaa'}"></div>
+      <span class="inv-pizza-leg-label">${INV_TIPOS_ICONS[tipo]||'💼'} ${tipo}</span>
+      <span class="inv-pizza-leg-val">${fmt(val)}</span>
+      <span class="inv-pizza-leg-pct">${((val/total)*100).toFixed(0)}%</span>
+    </div>`).join('');
+}
 
 function renderInvestimentos(){
   const totalInvestido=investimentos.reduce((a,b)=>a+b.valorInvestido,0);
@@ -1073,16 +1293,15 @@ function renderInvestimentos(){
     <div class="card ${lucro>=0?'green':'red'}"><div class="card-label">Resultado</div><div class="card-value">${lucro>=0?'+':''}${fmt(lucro)}</div><div class="card-sub">${rentab>=0?'+':''}${rentab.toFixed(2)}% total</div></div>
     ${divMes>0?`<div class="card gold"><div class="card-label">💰 Dividendos Previstos</div><div class="card-value">${fmt(divMes)}</div><div class="card-sub">próximo pagamento</div></div>`:''}`;
 
-  // Monitor de Carteira — alocação por tipo
-  renderMonitorCarteira(totalAtual);
+  // Gráfico pizza
+  renderPizzaInvestimentos();
 
   const grid=document.getElementById('inv-grid');
   if(!investimentos.length){grid.innerHTML='<div class="no-data" style="grid-column:1/-1">Nenhum investimento cadastrado.</div>';return;}
   grid.innerHTML=investimentos.map(inv=>{
     const lucro=(inv.valorAtual||inv.valorInvestido)-inv.valorInvestido,r=inv.valorInvestido>0?((lucro/inv.valorInvestido)*100):0;
     const dc=dividendosCache.find(d=>d.ticker===inv.ticker);
-    const divPreview=dc&&dc.ultimoDividendo>0?`<div class="inv-div-preview"><div class="inv-div-preview-label">💰 Último dividendo · ${fmtDate(dc.dataPagamento)}</div><div class="inv-div-preview-val">${fmt(dc.totalPrevisto)}</div></div>`:'';
-    const pct=totalAtual>0?(((inv.valorAtual||inv.valorInvestido)/totalAtual)*100).toFixed(1):0;
+    const divPreview=dc&&dc.ultimoDividendo>0?`<div class="inv-div-preview"><div class="inv-div-preview-label">💰 Último dividendo</div><div class="inv-div-preview-val">${fmt(dc.totalPrevisto)}</div></div>`:'';
     return `<div class="inv-card">
       ${inv.cotas?`<div class="inv-cotas-badge">${inv.cotas} cotas</div>`:''}
       <div class="inv-tipo">${INV_TIPOS_ICONS[inv.tipo]||'💼'} ${inv.tipo}</div>
@@ -1091,93 +1310,17 @@ function renderInvestimentos(){
         <div class="inv-stat"><div class="inv-stat-label">Investido</div><div class="inv-stat-value">${fmt(inv.valorInvestido)}</div></div>
         <div class="inv-stat"><div class="inv-stat-label">Atual</div><div class="inv-stat-value">${fmt(inv.valorAtual||inv.valorInvestido)}</div></div>
         <div class="inv-stat"><div class="inv-stat-label">Resultado</div><div class="inv-stat-value ${lucro<0?'neg':''}">${lucro>=0?'+':''}${fmt(lucro)}</div></div>
-        <div class="inv-stat"><div class="inv-stat-label">Carteira</div><div class="inv-stat-value" style="color:var(--gold)">${pct}%</div></div>
+        <div class="inv-stat"><div class="inv-stat-label">Rentab.</div><div class="inv-stat-value ${r<0?'neg':''}">${r>=0?'+':''}${r.toFixed(2)}%</div></div>
       </div>
       ${divPreview}
       ${inv.obs?`<div class="inv-rentab" style="margin-bottom:10px">📝 ${inv.obs}</div>`:''}
       ${inv.rentabilidadeEsperada?`<div class="inv-rentab">Meta: ${inv.rentabilidadeEsperada}% a.a.</div>`:''}
       <div class="inv-actions" style="margin-top:12px">
-        <button class="btn-inv" onclick="openInvUpdateModal(${inv.id})">✏️ Editar</button>
+        <button class="btn-inv" onclick="openInvUpdateModal(${inv.id})">📊 Atualizar valor</button>
         <button class="btn-sm" onclick="delInvestimento(${inv.id})">✕</button>
       </div>
     </div>`;
   }).join('');
-}
-
-// ── Monitor de Carteira ────────────────────────────────────────
-function renderMonitorCarteira(totalAtual){
-  const el=document.getElementById('monitor-carteira');
-  if(!el||!investimentos.length||!totalAtual){if(el)el.style.display='none';return;}
-  el.style.display='block';
-
-  // Agrupa por tipo
-  const porTipo={};
-  investimentos.forEach(inv=>{
-    const v=inv.valorAtual||inv.valorInvestido;
-    porTipo[inv.tipo]=(porTipo[inv.tipo]||0)+v;
-  });
-
-  const CORES_TIPO={
-    'Ações':'#c8f55a','FIIs':'#ffcc5a','Renda Fixa':'#6eb3ff',
-    'Criptomoedas':'#b97aff','Fundos':'#3dd9c6','Poupança':'#ff9a5e','Outro':'#aaa'
-  };
-
-  const barras=Object.entries(porTipo).sort((a,b)=>b[1]-a[1]).map(([tipo,val])=>{
-    const pct=(val/totalAtual*100).toFixed(1);
-    const cor=CORES_TIPO[tipo]||'#aaa';
-    return `<div style="margin-bottom:10px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;font-weight:500">${INV_TIPOS_ICONS[tipo]||'💼'} ${tipo}</span>
-        <span style="font-size:12px;color:var(--muted)">${fmt(val)} <strong style="color:var(--text)">${pct}%</strong></span>
-      </div>
-      <div style="height:6px;background:var(--surface2);border-radius:99px;overflow:hidden">
-        <div style="height:100%;width:${pct}%;background:${cor};border-radius:99px;transition:width 0.5s cubic-bezier(0.34,1.56,0.64,1)"></div>
-      </div>
-    </div>`;
-  }).join('');
-
-  // Top ativos
-  const topAtivos=[...investimentos]
-    .sort((a,b)=>(b.valorAtual||b.valorInvestido)-(a.valorAtual||a.valorInvestido))
-    .slice(0,5)
-    .map(inv=>{
-      const v=inv.valorAtual||inv.valorInvestido;
-      const pct=(v/totalAtual*100).toFixed(1);
-      const lucro=v-inv.valorInvestido;
-      const cor=lucro>=0?'var(--accent)':'var(--red)';
-      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
-        <div>
-          <div style="font-size:13px;font-weight:500">${inv.nome}${inv.ticker?` <span style="color:var(--teal);font-size:10px">${inv.ticker}</span>`:''}</div>
-          <div style="font-size:10px;color:var(--muted)">${inv.tipo} · ${pct}% da carteira</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-size:13px;font-weight:600">${fmt(v)}</div>
-          <div style="font-size:10px;color:${cor}">${lucro>=0?'+':''}${fmt(lucro)}</div>
-        </div>
-      </div>`;
-    }).join('');
-
-  el.innerHTML=`
-    <div class="two-col" style="margin-bottom:16px">
-      <div class="panel">
-        <div class="panel-title"><div class="dot" style="background:var(--purple)"></div>Alocação por tipo</div>
-        ${barras}
-      </div>
-      <div class="panel">
-        <div class="panel-title"><div class="dot" style="background:var(--gold)"></div>Top ativos</div>
-        ${topAtivos}
-      </div>
-    </div>`;
-}
-
-// ═══════════════════════════════════════
-// DIVIDENDOS — Yahoo Finance (gratuito)
-// ═══════════════════════════════════════
-function showToast(msg,type){
-  let el=document.getElementById('toast-div');
-  if(!el){el=document.createElement('div');el.id='toast-div';el.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:10px 20px;font-size:13px;font-weight:500;z-index:9999;animation:fadeUp 0.3s ease;box-shadow:0 8px 24px rgba(0,0,0,0.4);';document.body.appendChild(el);}
-  el.textContent=msg;el.style.color=type==='ok'?'var(--accent)':'var(--gold)';
-  clearTimeout(el._t);el._t=setTimeout(()=>el.remove(),3500);
 }
 
 // ═══════════════════════════════════════
@@ -1290,16 +1433,61 @@ function renderMetas(){
   if(!goals.length){g.innerHTML='<div class="no-data" style="grid-column:1/-1">Nenhuma meta criada.</div>';return;}
   g.innerHTML=goals.map(gl=>{
     const p=Math.min(100,(gl.saved/gl.target)*100),done=p>=100;
-    return `<div class="goal-card">${done?'<div class="goal-completed">✓ Concluída</div>':''}<div class="goal-emoji">${gl.emoji}</div><div class="goal-name">${gl.name}</div><div class="goal-target">Meta: ${fmt(gl.target)}</div><div class="goal-progress-bg"><div class="goal-progress-fill" style="width:${p}%"></div></div><div class="goal-row"><span>${fmt(gl.saved)} guardado</span><span>${p.toFixed(0)}%</span></div><div class="goal-row" style="margin-top:3px"><span>Faltam: ${fmt(Math.max(0,gl.target-gl.saved))}</span></div><div class="goal-actions">${!done?`<button class="btn-contribute" onclick="openContrib(${gl.id})">+ Contribuir</button>`:''}<button class="btn-sm" onclick="delGoal(${gl.id})">✕</button></div></div>`;
+    return `<div class="goal-card">
+      ${done?'<div class="goal-completed">✓ Concluída</div>':''}
+      <div class="goal-emoji">${gl.emoji}</div>
+      <div class="goal-name">${gl.name}</div>
+      <div class="goal-target">Meta: ${fmt(gl.target)}</div>
+      <div class="goal-progress-bg"><div class="goal-progress-fill" style="width:${p}%"></div></div>
+      <div class="goal-row"><span>${fmt(gl.saved)} guardado</span><span>${p.toFixed(0)}%</span></div>
+      <div class="goal-row" style="margin-top:3px"><span>Faltam: ${fmt(Math.max(0,gl.target-gl.saved))}</span></div>
+      <div class="goal-actions">
+        ${!done?`<button class="btn-contribute" onclick="openContrib(${gl.id},'deposito')">+ Depositar</button>`:''}
+        ${gl.saved>0?`<button class="btn-withdraw" onclick="openContrib(${gl.id},'retirada')">− Retirar</button>`:''}
+        <button class="btn-sm" onclick="delGoal(${gl.id})">✕</button>
+      </div>
+    </div>`;
   }).join('');
 }
 async function delGoal(id){if(!confirm('Excluir?'))return;goals=goals.filter(g=>g.id!==id);await saveUserDoc({goals});}
-function openContrib(id){contribId=id;const g=goals.find(g=>g.id===id);document.getElementById('contrib-title').textContent=`Contribuir — ${g.name}`;document.getElementById('contrib-val').value='';document.getElementById('contrib-modal').classList.add('open');}
+
+let contribTipo='deposito';
+function setContribTipo(tipo){
+  contribTipo=tipo;
+  document.getElementById('btn-contrib-dep').className='type-btn'+(tipo==='deposito'?' active-receita':'');
+  document.getElementById('btn-contrib-ret').className='type-btn'+(tipo==='retirada'?' active-despesa':'');
+  const g=goals.find(g=>g.id===contribId);
+  document.getElementById('contrib-aviso').style.display='none';
+}
+
+function openContrib(id,tipo='deposito'){
+  contribId=id;contribTipo=tipo;
+  const g=goals.find(g=>g.id===id);
+  document.getElementById('contrib-title').textContent=tipo==='retirada'?`Retirar — ${g.name}`:`Depositar — ${g.name}`;
+  document.getElementById('contrib-val').value='';
+  document.getElementById('contrib-aviso').style.display='none';
+  setContribTipo(tipo);
+  document.getElementById('contrib-modal').classList.add('open');
+}
 function closeContribModal(){document.getElementById('contrib-modal').classList.remove('open');}
 async function saveContrib(){
-  const v=parseFloat(document.getElementById('contrib-val').value);if(!v||v<=0){alert('Valor inválido.');return;}
-  const g=goals.find(g=>g.id===contribId);if(g)g.saved=Math.min(g.target,g.saved+v);
-  closeContribModal();await saveUserDoc({goals});
+  const v=parseFloat(document.getElementById('contrib-val').value);
+  if(!v||v<=0){alert('Valor inválido.');return;}
+  const g=goals.find(g=>g.id===contribId);
+  if(!g) return;
+  if(contribTipo==='retirada'){
+    if(v>g.saved){
+      document.getElementById('contrib-aviso').style.display='block';
+      return;
+    }
+    g.saved=Math.max(0,g.saved-v);
+    showToast(`R$ ${v.toFixed(2).replace('.',',')} retirado de "${g.name}"!`,'ok');
+  } else {
+    g.saved=Math.min(g.target,g.saved+v);
+    showToast(`R$ ${v.toFixed(2).replace('.',',')} adicionado a "${g.name}"!`,'ok');
+  }
+  closeContribModal();
+  await saveUserDoc({goals});
 }
 
 // ═══════════════════════════════════════
@@ -1307,7 +1495,11 @@ async function saveContrib(){
 // ═══════════════════════════════════════
 function renderRelatorios(){
   const ms=document.getElementById('report-mes');
+  // Salva valor selecionado ANTES de reconstruir
+  const mesVal=ms.value;
   ms.innerHTML='<option value="">Todos os meses</option>'+[...new Set(transactions.map(t=>t.data.slice(0,7)))].sort().reverse().map(m=>{const[y,mo]=m.split('-');return`<option value="${m}">${new Date(+y,+mo-1,1).toLocaleDateString('pt-BR',{month:'long',year:'numeric'})}</option>`;}).join('');
+  // Restaura valor
+  if(mesVal) ms.value=mesVal;
   const fm=ms.value,f=fm?transactions.filter(t=>t.data.startsWith(fm)):transactions;
   const rec=f.filter(t=>t.type==='receita').reduce((a,b)=>a+b.valor,0),dep=f.filter(t=>t.type==='despesa').reduce((a,b)=>a+b.valor,0),sal=rec-dep,tx=rec>0?((sal/rec)*100).toFixed(0):0;
   document.getElementById('report-cards').innerHTML=`<div class="card green"><div class="card-label">Total Receitas</div><div class="card-value">${fmt(rec)}</div></div><div class="card red"><div class="card-label">Total Despesas</div><div class="card-value">${fmt(dep)}</div></div><div class="card ${sal>=0?'blue':'red'}"><div class="card-label">Saldo</div><div class="card-value">${fmt(sal)}</div></div><div class="card gold"><div class="card-label">Taxa de Poupança</div><div class="card-value">${tx}%</div></div>`;
@@ -1389,8 +1581,374 @@ async function enviarResetSenha(){
     if(e.target.id===id)document.getElementById(id).classList.remove('open');
   });
 });
+
+// ═══════════════════════════════════════
+// CHAT IA — registra transações por texto ou foto
+// ═══════════════════════════════════════
+const CATS_R_CHAT=['Salário','Freelance','Investimentos','Vendas','Outros'];
+const CATS_D_CHAT=['Alimentação','Transporte','Moradia','Saúde','Educação','Lazer','Roupas','Contas','Outros'];
+
+let chatFotoBase64='';
+let chatFotoMime='';
+let chatMsgs=[];
+
+function getApiKey(){ return localStorage.getItem('anthropic_key')||''; }
+function salvarApiKey(){
+  const k=(document.getElementById('chat-apikey').value||'').trim();
+  if(!k||!k.startsWith('sk-')){alert('Chave inválida. Deve começar com sk-');return;}
+  localStorage.setItem('anthropic_key',k);
+  atualizarUIApiKey();
+  showToast('API Key salva!','ok');
+}
+function resetApiKey(){ localStorage.removeItem('anthropic_key'); atualizarUIApiKey(); }
+function atualizarUIApiKey(){
+  const ok=!!getApiKey();
+  document.getElementById('chat-cfg-bar').style.display=ok?'none':'flex';
+  document.getElementById('chat-apikey-ok').style.display=ok?'block':'none';
+}
+
+function usarPill(el){
+  const txt=el.textContent.replace(/^[^\w]*/,'').trim();
+  if(txt.includes('foto')||txt.includes('comprovante')){
+    document.getElementById('chat-file').click();
+  } else {
+    document.getElementById('chat-txt').value=txt;
+    document.getElementById('chat-txt').focus();
+  }
+}
+
+function onFotoSelecionada(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    chatFotoBase64=e.target.result.split(',')[1];
+    chatFotoMime=file.type;
+    document.getElementById('chat-preview-thumb').src=e.target.result;
+    document.getElementById('chat-img-preview').style.display='inline-block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function limparFoto(){
+  chatFotoBase64='';chatFotoMime='';
+  document.getElementById('chat-img-preview').style.display='none';
+  document.getElementById('chat-preview-thumb').src='';
+  document.getElementById('chat-file').value='';
+}
+
+function addMsg(role,html,imgSrc=''){
+  const div=document.createElement('div');
+  div.className=`chat-bubble ${role}`;
+  if(imgSrc) div.innerHTML=`<img src="${imgSrc}"><span>${html}</span>`;
+  else div.innerHTML=html;
+  document.getElementById('chat-msgs').appendChild(div);
+  document.getElementById('chat-msgs').scrollTop=99999;
+  return div;
+}
+
+async function enviarChat(){
+  if(!getApiKey()){ alert('Configure sua API Key da Anthropic primeiro!'); return; }
+  const txt=(document.getElementById('chat-txt').value||'').trim();
+  if(!txt&&!chatFotoBase64){ alert('Digite uma mensagem ou selecione uma foto.'); return; }
+
+  const btn=document.getElementById('btn-chat-send');
+  btn.disabled=true;
+
+  // Mostra msg do usuário
+  if(chatFotoBase64&&txt) addMsg('user',txt,`data:${chatFotoMime};base64,${chatFotoBase64}`);
+  else if(chatFotoBase64) addMsg('user','📷 Comprovante enviado',`data:${chatFotoMime};base64,${chatFotoBase64}`);
+  else addMsg('user',txt);
+
+  const loadingEl=addMsg('ai','<span class="div-loading"><span class="div-spinner"></span>Analisando...</span>','' );
+  loadingEl.classList.add('loading');
+
+  // Monta conteúdo para o Claude
+  const hoje=new Date().toLocaleDateString('pt-BR');
+  const system=`Você é um assistente financeiro pessoal brasileiro. Analise a mensagem/imagem do usuário e extraia dados de uma transação financeira.
+
+Categorias de DESPESA disponíveis: ${CATS_D_CHAT.join(', ')}
+Categorias de RECEITA disponíveis: ${CATS_R_CHAT.join(', ')}
+Data de hoje: ${hoje}
+
+Retorne APENAS um JSON válido, sem texto extra:
+{"tipo":"despesa","desc":"descrição curta","valor":50.00,"cat":"Alimentação","data":"${new Date().toISOString().split('T')[0]}","msg":"✅ Registrado! Despesa de R$ 50,00 em Alimentação."}
+
+Se for receita use tipo "receita". Se não conseguir identificar retorne:
+{"erro":"explique o motivo brevemente"}
+
+Para fotos de comprovante/nota: extraia o valor total, estabelecimento/descrição e data se disponível.`;
+
+  const content=[];
+  if(chatFotoBase64){
+    content.push({type:'image',source:{type:'base64',media_type:chatFotoMime,data:chatFotoBase64}});
+  }
+  if(txt) content.push({type:'text',text:txt});
+  if(!txt&&chatFotoBase64) content.push({type:'text',text:'Extraia os dados de transação financeira desta imagem.'});
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':getApiKey(),
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:500,
+        system,
+        messages:[{role:'user',content}]
+      })
+    });
+
+    const data=await res.json();
+    if(!res.ok) throw new Error(data.error?.message||`HTTP ${res.status}`);
+
+    const respTxt=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    const jsonMatch=respTxt.match(/\{[\s\S]*\}/);
+    if(!jsonMatch) throw new Error('Resposta inválida');
+
+    const r=JSON.parse(jsonMatch[0]);
+    loadingEl.remove();
+
+    if(r.erro){
+      addMsg('ai',`❓ ${r.erro}`);
+    } else {
+      // Salva a transação no Firebase
+      const tx={type:r.tipo,desc:r.desc,valor:r.valor,cat:r.cat,data:r.data};
+      await saveTransactionFB(tx);
+
+      // Mostra confirmação
+      const emoji=r.tipo==='receita'?'💰':'💸';
+      const cor=r.tipo==='receita'?'var(--accent)':'var(--red)';
+      const bubble=addMsg('ai',`${r.msg||'Registrado!'}<div class="chat-confirmed">
+        <div class="cf-row"><span class="cf-label">Tipo</span><span class="cf-val" style="color:${cor}">${emoji} ${r.tipo==='receita'?'Receita':'Despesa'}</span></div>
+        <div class="cf-row"><span class="cf-label">Descrição</span><span class="cf-val">${r.desc}</span></div>
+        <div class="cf-row"><span class="cf-label">Valor</span><span class="cf-val" style="color:${cor}">R$ ${Number(r.valor).toFixed(2).replace('.',',')}</span></div>
+        <div class="cf-row"><span class="cf-label">Categoria</span><span class="cf-val">${r.cat}</span></div>
+        <div class="cf-row"><span class="cf-label">Data</span><span class="cf-val">${new Date(r.data+'T12:00:00').toLocaleDateString('pt-BR')}</span></div>
+      </div>`);
+    }
+  }catch(e){
+    loadingEl.remove();
+    addMsg('ai',`⚠️ Erro: ${e.message}. Verifique sua API key.`);
+  }
+
+  // Limpa input
+  document.getElementById('chat-txt').value='';
+  document.getElementById('chat-txt').style.height='auto';
+  limparFoto();
+  btn.disabled=false;
+}
+
 document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 document.getElementById('reg-pass2').addEventListener('keydown',e=>{if(e.key==='Enter')doRegister();});
+
+// Inicializa UI da API key quando a seção carrega
+function renderChat(){ atualizarUIApiKey(); }
+
+// ═══════════════════════════════════════
+// LEMBRETES
+// ═══════════════════════════════════════
+const LEM_CATS={conta:'💳',meta:'🎯',saude:'❤️',trabalho:'💼',outro:'📌'};
+
+// Gera lembretes automáticos a partir de dívidas e metas
+function gerarLembretesAuto(){
+  const hoje=new Date(); hoje.setHours(0,0,0,0);
+  const itens=[];
+
+  // Dívidas com parcelas próximas
+  dividas.forEach(d=>{
+    if(!d.diaVencimento)return;
+    const pagas=d.pagas||0;
+    if(pagas>=d.numParcelas)return;
+    // Calcula próximo vencimento pelo dia do mês
+    const proxVenc=new Date(hoje.getFullYear(),hoje.getMonth(),d.diaVencimento);
+    if(proxVenc<=hoje) proxVenc.setMonth(proxVenc.getMonth()+1);
+    const dias=Math.ceil((proxVenc-hoje)/(1000*60*60*24));
+    let nivel='info';
+    if(dias<=0) nivel='urgente';
+    else if(dias<=3) nivel='urgente';
+    else if(dias<=7) nivel='atencao';
+    else if(dias<=15) nivel='info';
+    else return;
+    itens.push({
+      id:'div-'+d.id,
+      ico:'💳',nivel,
+      titulo:`Parcela: ${d.nome}`,
+      desc:`${fmt(d.valorParcela)} · Parcela ${pagas+1}/${d.numParcelas} · dia ${d.diaVencimento}`,
+      dias,
+      label:dias<=0?'Venceu hoje!':dias===1?'Vence amanhã':`Vence em ${dias} dias`
+    });
+  });
+
+  // Metas próximas de concluir (≥ 80%)
+  goals.forEach(g=>{
+    const p=(g.saved/g.target)*100;
+    if(p>=100||p<80)return;
+    itens.push({
+      id:'meta-'+g.id,
+      ico:g.emoji||'🎯',nivel:'ok',
+      titulo:`Meta quase atingida: ${g.name}`,
+      desc:`${fmt(g.saved)} de ${fmt(g.target)} — faltam ${fmt(g.target-g.saved)}`,
+      dias:null,
+      label:`${p.toFixed(0)}% concluída`
+    });
+  });
+
+  // Lembretes manuais vencendo
+  lembretesManuais.forEach(l=>{
+    if(l.concluido)return;
+    const venc=new Date(l.data+'T12:00:00');
+    const dias=Math.ceil((venc-hoje)/(1000*60*60*24));
+    let nivel='info';
+    if(dias<0) nivel='urgente';
+    else if(dias<=1) nivel='urgente';
+    else if(dias<=3) nivel='atencao';
+    else if(dias<=7) nivel='info';
+    // Inclui todos os não concluídos na lista automática se vencer em ≤7 dias
+    if(dias>7)return;
+    itens.push({
+      id:'man-'+l.id,
+      ico:LEM_CATS[l.cat]||'📌',nivel,
+      titulo:l.desc,
+      desc:`Agendado para ${new Date(l.data+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'})}`,
+      dias,
+      label:dias<0?'Atrasado!':`${dias===0?'Hoje':dias===1?'Amanhã':'Em '+dias+' dias'}`
+    });
+  });
+
+  return itens.sort((a,b)=>(a.dias??99)-(b.dias??99));
+}
+
+function renderLembretes(){
+  // Atualiza badge na aba
+  const auto=gerarLembretesAuto();
+  const urgentes=auto.filter(a=>a.nivel==='urgente').length;
+  const navBtn=document.getElementById('nav-lembretes');
+  if(navBtn) navBtn.innerHTML=`🔔 Lembretes${urgentes>0?`<span class="lem-badge">${urgentes}</span>`:''}`;
+
+  // Alertas automáticos
+  const autoEl=document.getElementById('lem-auto');
+  if(!auto.length){
+    autoEl.innerHTML='<div class="lem-vazio">✅ Nenhum alerta no momento</div>';
+  } else {
+    autoEl.innerHTML=auto.map(a=>`
+      <div class="lembrete-banner ${a.nivel}">
+        <div class="lem-ico">${a.ico}</div>
+        <div class="lem-body">
+          <div class="lem-titulo">${a.titulo}</div>
+          <div class="lem-desc">${a.desc}</div>
+          <span class="lem-dias ${a.nivel}">${a.label}</span>
+        </div>
+      </div>`).join('');
+  }
+
+  // Define data padrão como hoje
+  const dataEl=document.getElementById('lem-data');
+  if(dataEl&&!dataEl.value) dataEl.value=new Date().toISOString().split('T')[0];
+
+  // Lembretes manuais
+  const manEl=document.getElementById('lem-manual');
+  const ativos=lembretesManuais.filter(l=>!l.concluido).sort((a,b)=>a.data.localeCompare(b.data));
+  const concluidos=lembretesManuais.filter(l=>l.concluido);
+  if(!lembretesManuais.length){
+    manEl.innerHTML='<div class="lem-vazio">Nenhum lembrete manual. Crie um acima!</div>';
+    return;
+  }
+  manEl.innerHTML=[...ativos,...concluidos].map(l=>{
+    const venc=new Date(l.data+'T12:00:00');
+    const hoje2=new Date(); hoje2.setHours(0,0,0,0);
+    const dias=Math.ceil((venc-hoje2)/(1000*60*60*24));
+    const nivel=l.concluido?'ok':dias<0?'urgente':dias<=3?'atencao':'info';
+    const label=l.concluido?'Concluído':dias<0?`Atrasado ${Math.abs(dias)}d`:dias===0?'Hoje':dias===1?'Amanhã':`Em ${dias} dias`;
+    return `<div class="lembrete-banner ${nivel}" style="${l.concluido?'opacity:0.5':''}">
+      <div class="lem-ico">${LEM_CATS[l.cat]||'📌'}</div>
+      <div class="lem-body">
+        <div class="lem-titulo">${l.desc}</div>
+        <div class="lem-desc">${venc.toLocaleDateString('pt-BR',{weekday:'short',day:'numeric',month:'short',year:'numeric'})}</div>
+        <span class="lem-dias ${nivel}">${label}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-left:8px">
+        ${!l.concluido?`<button onclick="concluirLembrete(${l.id})" style="background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer;font-family:'DM Sans',sans-serif">✓ OK</button>`:''}
+        <button class="lem-fechar" onclick="delLembrete(${l.id})" style="position:static">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function salvarLembrete(){
+  const desc=(document.getElementById('lem-desc').value||'').trim();
+  const data=document.getElementById('lem-data').value;
+  const cat=document.getElementById('lem-cat').value;
+  if(!desc||!data){alert('Preencha descrição e data.');return;}
+  lembretesManuais.push({id:Date.now(),desc,data,cat,concluido:false});
+  document.getElementById('lem-desc').value='';
+  document.getElementById('lem-data').value='';
+  await saveUserDoc({lembretesManuais});
+  showToast('Lembrete salvo!','ok');
+}
+
+async function concluirLembrete(id){
+  const l=lembretesManuais.find(l=>l.id===id);
+  if(l){l.concluido=true;}
+  await saveUserDoc({lembretesManuais});
+  showToast('Lembrete concluído! ✅','ok');
+}
+
+async function delLembrete(id){
+  lembretesManuais=lembretesManuais.filter(l=>l.id!==id);
+  await saveUserDoc({lembretesManuais});
+}
+
+function openLembreteModal(){
+  document.getElementById('lem-desc').focus();
+  showSection('lembretes');
+}
+
+// Verificação automática — mostra toast na tela ao entrar no app
+function verificarLembretesAuto(){
+  const auto=gerarLembretesAuto().filter(a=>a.nivel==='urgente'||a.nivel==='atencao');
+  if(!auto.length)return;
+  // Atualiza badge
+  const urgentes=auto.filter(a=>a.nivel==='urgente').length;
+  const navBtn=document.getElementById('nav-lembretes');
+  if(navBtn) navBtn.innerHTML=`🔔 Lembretes${urgentes>0?`<span class="lem-badge">${urgentes}</span>`:''}`;
+  // Mostra notificações push se permitido
+  if(Notification.permission==='granted'){
+    auto.slice(0,3).forEach(a=>{
+      new Notification(`${a.ico} ${a.titulo}`,{
+        body:`${a.desc} · ${a.label}`,
+        tag:'lem-'+a.id,
+        icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%230a0a0f"/><text y=".9em" font-size="80">🔔</text></svg>'
+      });
+    });
+  } else if(Notification.permission==='default'){
+    // Pede permissão silenciosamente
+    Notification.requestPermission();
+  }
+  // Mostra toast na tela
+  mostrarToastLembretes(auto.slice(0,2));
+}
+
+function mostrarToastLembretes(itens){
+  const bar=document.getElementById('notif-bar');
+  if(!bar)return;
+  itens.forEach((a,i)=>{
+    setTimeout(()=>{
+      const t=document.createElement('div');
+      t.className=`notif-toast ${a.nivel}`;
+      t.innerHTML=`<span style="font-size:20px">${a.ico}</span><div style="flex:1"><div style="font-size:12px;font-weight:600">${a.titulo}</div><div style="font-size:11px;color:var(--muted)">${a.label}</div></div><button onclick="this.parentElement.remove();showSection('lembretes')" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:11px;font-weight:600;font-family:'DM Sans',sans-serif;white-space:nowrap">Ver →</button>`;
+      bar.appendChild(t);
+      setTimeout(()=>t.style.opacity='0',5000);
+      setTimeout(()=>t.remove(),5500);
+    },i*600);
+  });
+}
+
+
 </script>
 </body>
 </html>
